@@ -20,13 +20,17 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
+
 contract MyToken {
+
     // public variables here
     string public tokenName = "Amit Kumar Sahu";
     string public tokenSymbol = "Saami";
     uint public totalSupply = 0;
+    
     // mapping variable here
     mapping(address => uint) public balance; 
+    
     // mint function
     function mint(address _address, uint _value) public {
         totalSupp += _value;
