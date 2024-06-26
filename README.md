@@ -1,63 +1,53 @@
 
 
-# MyToken Smart Contract
+# MyToken 
 
-A simple ERC-20 like token implementation on the Ethereum blockchain that allows for minting and burning of tokens.
+This Solidity program is a simple "MyToken" contract that demonstrates the basic syntax and functionality of the Solidity programming language. The purpose of this program is to serve as a starting point for those who are new to Solidity and want to get a feel for how it works by creating a simple token with minting and burning capabilities.
 
 ## Description
 
-The `MyToken` contract is designed to manage a custom token on the Ethereum blockchain. It provides basic functionalities to mint (create) and burn (destroy) tokens. The contract keeps track of the total supply of tokens and the balances of individual addresses. It is a straightforward implementation to help understand the fundamentals of token management on the blockchain.
+This program is a smart contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract defines a custom token with a name, abbreviation, and total supply. It includes functions to mint and burn tokens, allowing the supply of tokens to be adjusted. This program serves as a simple and straightforward introduction to Solidity programming, and can be used as a stepping stone for more complex projects in the future.
 
 ## Getting Started
 
-### Installing
+### Executing Program
 
-To use this contract, you'll need the following:
-* An Ethereum development environment like [Remix IDE](https://remix.ethereum.org/) or [Truffle](https://www.trufflesuite.com/truffle).
-* A connection to the Ethereum network (mainnet, testnet, or local development network).
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at Remix.
 
-### Executing program
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., MyToken.sol). Copy and paste the following code into the file:
 
-To deploy and interact with the `MyToken` contract, follow these steps:
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
 
-1. **Deploy the Contract:**
-   - Open your Ethereum development environment (e.g., Remix IDE).
-   - Copy the `MyToken` contract code into a new Solidity file.
-   - Compile the contract.
-   - Deploy the contract to your chosen Ethereum network.
-   - After deployment, note the contract address for further interactions.
+contract MyToken {
+    // public variables here
+    string public tokenName = "Amit Kumar Sahu";
+    string public tokenSymbol = "Saami";
+    uint public totalSupply = 0;
 
-2. **Mint Tokens:**
-   - To mint new tokens, call the `mint` function with the recipient's address and the amount of tokens to be minted.
-   ```solidity
-   mint("0xRecipientAddress", 100);
-   ```
-   - This will increase the total supply and add tokens to the specified address.
+    // mapping variable here
+    mapping(address => uint) public balance;
+    
+    // mint function
+    function mint(address _address, uint _value) public {
+        totalSupp += _value;
+        balance[_address] += _value;
+    }
 
-3. **Burn Tokens:**
-   - To burn existing tokens, call the `burn` function with the address holding the tokens and the amount of tokens to be burned.
-   ```solidity
-   burn("0xHolderAddress", 50);
-   ```
-   - This will decrease the total supply and remove tokens from the specified address if it has sufficient balance.
+    // burn function
+    function burn(address _address, uint _value) public {
+        if(balance[_address] >= _value) {
+            totalSupp -= _value;
+            balance[_address] -= _value;
+        }
+    }
+}
 
-4. **Attempting to Burn More Tokens Than Available**:
-   ```solidity
-   burn("0xHolderAddress", 100);
-   ```
-   - This will not change the state if the address `0xHolderAddress` does not have enough tokens to burn.
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.18" (or another compatible version), and then click on the "Compile MyToken.sol" button.
 
-## Help
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "MyToken" contract from the dropdown menu, and then click on the "Deploy" button.
 
-If you encounter common problems or issues, ensure that:
-- The address involved in minting or burning tokens is valid and has enough balance (in the case of burning).
-- The Ethereum network you're connected to is working correctly.
-
-For additional help, you can use:
-```
-solc --help
-```
-or refer to the [Solidity documentation](https://docs.soliditylang.org/).
+Once the contract is deployed, you can interact with it by calling the mint and burn functions. Click on the "MyToken" contract in the left-hand sidebar to expand it, and you will see the available functions. You can use the input fields next to the functions to specify the parameters and then click on the appropriate function button to execute it.
 
 ## Authors
 
@@ -67,10 +57,8 @@ Contributors:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License 
 
----
 
-This README provides a structured overview of the `MyToken` contract, detailing its purpose, setup, execution, and additional resources for help.
 
 
