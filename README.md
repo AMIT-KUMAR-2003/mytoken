@@ -33,13 +33,13 @@ contract MyToken {
     
     // mint function
     function mint(address _address, uint _value) public {
-        totalSupp += _value;
+        totalSupply += _value;
         balance[_address] += _value;
     }
     // burn function
     function burn(address _address, uint _value) public {
         if(balance[_address] >= _value) {
-            totalSupp -= _value;
+            totalSupply -= _value;
             balance[_address] -= _value;
         }
     }
