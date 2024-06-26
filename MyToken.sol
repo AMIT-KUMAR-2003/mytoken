@@ -25,7 +25,7 @@ contract MyToken {
 
     // mapping variable here
 
-    mapping (address=>uint) public walletBalance;
+    mapping (address=>uint) public balance;
     
     // mint function
     
