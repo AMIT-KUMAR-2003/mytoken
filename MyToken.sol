@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.26;
+pragma solidity 0.8.18;
 
 /*
        REQUIREMENTS
@@ -20,12 +20,12 @@ contract MyToken {
     // public variables here
 
     string public tokenName="Amit Kumar Sahu";
-    string public tokenAbbre="Saami";
-    uint public totalSupp=5000;
+    string public tokenSymbol="Saami";
+    uint public totalSupply=0;
 
     // mapping variable here
 
-    mapping (address=>uint) public balance;
+    mapping (address=>uint) public walletBalance;
     
     // mint function
     
